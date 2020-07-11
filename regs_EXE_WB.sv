@@ -85,19 +85,19 @@ module regs_EXE_WB (input logic clk,
 			readen[3] <= 1'b1;
 		end
 		
-		else if (wr_allow[2]) begin
+		else if (ready_write[2]) begin
 			next_Rd <= ld_Rd;
 			next_result <= ld;
 			readen[2] <= 1'b1;
 		end
 		
-		else if (wr_allow[1]) begin
+		else if (ready_write[1]) begin
 			next_Rd <= mul_Rd;
 			next_result <= mul;
 			readen[1] <= 1'b1;
 		end
 		
-		else if (wr_allow[0]) begin
+		else if (ready_write[0]) begin
 			next_Rd <= div_Rd;
 			next_result <= div;
 			readen[0] <= 1'b1;
