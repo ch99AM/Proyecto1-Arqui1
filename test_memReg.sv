@@ -4,7 +4,7 @@ module test_memReg();
 	logic [3:0] Rd, Rs1, Rs2;
 	logic [31:0] DI, D1, D2;
 	
-	memReg DUT(.reg_rd(reg_rd), .reg_wr(reg_wr), .clk(clk),
+	memReg DUT(.rd_allow(reg_rd), .wr_allow(reg_wr), .clk(clk),
 				  .Rd(Rd), .Rs1(Rs1), .Rs2(Rs2),
 				  .DI(DI), .D1(D1), .D2(D2));
 	
