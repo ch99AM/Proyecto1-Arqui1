@@ -3,7 +3,7 @@ module ext_module(input logic [25:0] imm,
 						output logic [31:00] imm_ext);
 
 						
-	always @(imm, imm_ctrl) begin
+	always_comb begin
 		
 		case(imm_ctrl)
 		
