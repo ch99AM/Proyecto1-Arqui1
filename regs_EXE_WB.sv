@@ -2,8 +2,10 @@ module regs_EXE_WB (input logic clk,
 						  input logic [3:0] wr_allow, 
 												  in_alu_Rd, in_ld_Rd, in_mul_Rd, in_div_Rd, 
 						  input logic [31:0] alu_exe, ld_exe, mul_exe, div_exe, 
-						  output logic [3:0] final_Rd, busy,  
-						  output logic [31:0] final_result);
+						  output logic [3:0] final_Rd, busy,
+													out_alu_Rd, out_ld_Rd, out_mul_Rd, out_div_Rd,
+						  output logic [31:0] final_result,
+													 alu_wb, ld_wb, mul_wb, div_wb);
 
 	logic [3:0] alu_Rd = 4'd0;
 	logic [31:0] alu = 32'd0;
@@ -17,6 +19,14 @@ module regs_EXE_WB (input logic clk,
 	logic [3:0] next_Rd = 4'd0;
 	logic [31:0] next_result = 32'd0;
 	
+	assign out_alu_Rd = alu_Rd;
+	assign alu_wb = alu;
+	assign out_ld_Rd = ld_Rd;
+	assign ld_wb = ld;
+	assign out_mul_Rd = mul_Rd;
+	assign mul_wb = mul;
+	assign out_div_Rd = div_Rd;
+	assign div_wb = div;
 	assign final_Rd = next_Rd;
 	assign busy = ready_write;
 	assign final_result = next_result;
