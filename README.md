@@ -21,7 +21,7 @@ Favor revisar el archivo `format_memory.py`
 
 ## Integrantes
 
-Christian Alpizar Monge
-Esteban Campos Granados
-Jose Antonio Ortega González
+Christian Alpizar Monge -
+Esteban Campos Granados -
+Jose Antonio Ortega González -
 Andrey Sibaja Garro
