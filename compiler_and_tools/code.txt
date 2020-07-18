@@ -1,0 +1,23 @@
+ 	    li	c1, #1861; // d
+	    li	c2, #4819; // n
+	    li	c3, #16384; // direccion enc
+	    li	c4, #212992; // direccion des
+	    li	c5, #102400; // tamaño des bytes
+		mov r5, c4;
+LOOP:	mov	r0, c1;
+	    li	r1, #1;
+	    lb 	r2, c3, r4;
+CHECK: be  r0, c0, WRITE;
+	    andi r3, r0, #1;
+	    srd	r0, r0, #1;
+	    be	r3, c0, SK_MUL;
+	    mul r1, r1, r2;
+	    mod	r1, r1, c2;
+SK_MUL: mul	r2, r2, r2;
+	    mod	r2, r2, c2;
+	    j CHECK;
+WRITE: sw r1, r5, #0; // modificar sw a sb be  r1, c0, WRITE;  be  r0, c0, WRITE;
+	    sumi	r4, r4, #1;
+	    sumi	r5, r5, #1;
+	    bne	r4, c5, LOOP;
+	    end;
